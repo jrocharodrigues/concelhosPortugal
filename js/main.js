@@ -42,6 +42,23 @@ var animationSpeed = 500;
 
 // Return style by tax bracket for provided council name using the concelhosIRS array
 function corConcelho(nome) {
+  if (concelhosIRS[nome] >= 0.10) {
+    return overZeroPercent;
+  } else if (concelhosIRS[nome] >= 0.05 && concelhosIRS[nome] < 0.10) {
+    return overOnePercent;
+  } else if (concelhosIRS[nome] >= 0.02 && concelhosIRS[nome] < 0.05) {
+    return overTwoPercent;
+  } else if (concelhosIRS[nome] >= 0.010 && concelhosIRS[nome] < 0.02) {
+    return overThreePercent;
+  } else if (concelhosIRS[nome] >= 0.005 && concelhosIRS[nome] < 0.010) {
+    return overFourPercent;
+  } else if (concelhosIRS[nome] >= 0.0 && concelhosIRS[nome] < 0.005) {
+    return fivePercent;
+  } else {
+    return style;
+  }
+
+/*
   if (concelhosIRS[nome] == 0.05) {
     return fivePercent;
   } else if (concelhosIRS[nome] >= 0.04 && concelhosIRS[nome] < 0.05) {
@@ -56,7 +73,7 @@ function corConcelho(nome) {
     return overZeroPercent;
   } else {
     return style;
-  }
+  }*/
 }
 
 // Main loop
